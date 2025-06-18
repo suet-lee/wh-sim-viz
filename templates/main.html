@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">        
+    </head>
+
+    <body>
+        
+        <div id="btns">
+            <button id="reload" disabled>reload</button>
+            <button id="play" disabled>play</button>
+            <button class="step" data-step="-10" disabled><<</button>
+            <button class="step" data-step="-1" disabled><</button>
+            <button class="step" data-step="1" disabled>></button>
+            <button class="step" data-step="10" disabled>>></button>
+            <button id="pause" disabled>pause</button>
+            <!-- <input type="range" name="ts-slider" min="0">
+            <input name="ts-text" value="0"> -->
+        </div>    
+
+        <div id="visual">
+            <div id="time">
+                <p>Time is <span id="time_txt">0.00</span>s</p>
+            </div>
+            <div id="width_lab">Warehouse width (cm)</div>
+            <div id="height_lab">Warehouse length (cm)</div>
+            <canvas id="yaxis"></canvas> 
+            <canvas id="xaxis"></canvas>  
+            <canvas id="arena"></canvas>  
+            <canvas id="legend"></canvas>        
+        </div>
+
+        <div id="control-panel">
+            {% include 'controls.html' %}
+        </div>
+
+        <div id="loading">
+            {% include 'loading.html' %}
+        </div>
+
+        <div id="metadata">
+            <input type="hidden" name="controller" value="{{ data['controller'] }}">
+        </div>
+
+    </body>
+    
+    <script src="{{ url_for('static', filename='viz.js') }}"></script>
+    <script src="{{ url_for('static', filename='control.js') }}"></script>
+
+</html>

@@ -1,0 +1,162 @@
+<div id="controls">
+    <input id="get-data-btn" type="button" value="load previous">
+    <br>
+    <br>
+    <hr>
+    
+    <form id="sim-cfg">
+        <label>
+            <input id="reset-sim-cfg" type="button" value="reset">
+        </label>
+
+        <label>
+            arena width
+            <input name="aw" value="500">
+        </label>
+
+        <label>
+            arena height
+            <input name="ah" value="500">
+        </label>
+
+        <label>
+            no. agents
+            {% if data['controller'] in ["collective-transport","trial","neurov","probaf"] %}
+            <input name="a" value="10">
+            {% else %}
+            <input name="a" value="10">
+            {% endif %}
+        </label>
+        
+        <label>
+            no. boxes
+            {% if data['controller'] in ["collective-transport","trial","neurov","probaf"] %}
+            <input name="b" value="0">
+            {% else %}
+            <input name="b" value="10">
+            {% endif %}
+        </label>
+
+        {% if data['controller'] in ["collective-transport","trial","neurov","probaf"] %}
+        <label>
+            no. boxes M
+            <input name="bm" value="2">
+        </label>
+
+        <label>
+            team wait time
+            <input name="cwait" value="6000">
+        </label>
+
+        <label>
+            leave team buffer time
+            <input name="ctime" value="200">
+        </label>
+        {% endif %}
+
+        <label>
+            no. faults
+            <input name="fn" value="0">
+        </label>
+        
+        <label>
+            fault type
+            <select name="ft">
+                <option value="0">No fault</option>
+                <option value="3">All wheel (v0)</option>
+                <option value="4">All wheel (v10)</option>
+                <option value="5">All wheel (v50)</option>
+                <option value="1">Single wheel</option>
+                <option value="2">Double wheels</option>
+                <option value="6">Radial cam (4)</option>
+                <option value="7">Upfacing cam</option>
+                <option value="8">Pickup</option>
+                <option value="9">Dropoff</option>
+                <option value="10">IR Laser (16)</option>
+                {% if data['controller'] in ["collective-transport","trial","neurov","probaf"] %}
+                <option value="11">Comms in</option>
+                <option value="12">Comms out</option>
+                {% endif %}
+            </select>
+        </label>
+
+        <label>
+            mitigation action
+            <select name="mid">
+                <option value="0">No action</option>
+                <option value="1">Decrease speed 50%</option>
+                <option value="2">Stop moving</option>
+                {% if data['controller'] in ["collective-transport","trial","neurov","probaf"] %}
+                <option value="3">Don't join team</option>
+                <option value="4">Leave team</option>
+                {% endif %}
+                <option value="18">Drop box</option>
+                <option value="5">Bias to nearest robot</option>
+                <option value="6">Bias to nearest box</option>
+                <option value="7">Bias to nearest box m</option>
+                <option value="8">Bias to nearest wall</option>
+                <option value="9">Bias left</option>
+                <option value="10">Bias from nearest robot</option>
+                <option value="11">Bias from nearest box</option>
+                <option value="12">Bias from nearest box m</option>
+                <option value="13">Bias from nearest wall</option>
+                <option value="14">Attract neighbour</option>
+                <option value="15">Repel neighbour</option>
+                {% if data['controller'] in ["collective-transport","trial","neurov","probaf"] %}
+                <option value="16">Stop comms in</option>
+                <option value="17">Stop comms out</option>
+                {% endif %}
+            </select>
+        </label>
+
+        <label>
+            mitigation buffer
+            <input name="mb" value="0">
+        </label>
+
+        <label>
+            iterations
+            {% if data['controller'] in ["collective-transport","trial","neurov","probaf"] %}
+            <input name="i" value="100000">
+            {% else %}
+            <input name="i" value="10000">
+            {% endif %}
+        </label>
+
+        <label>
+            seed
+            <input id="dummy-seed" form="dummy" name="seed" value="-1">
+        </label>
+
+        <label>
+            delivery bias
+            <input name="dbias" value="0">
+        </label>
+
+        <label>
+            boxm bias
+            <input name="bbias" value="0">
+        </label>
+
+        {% if data['controller'] in ["probaf"] %}
+        <label>
+            probabilistics fd
+            <select name="fd">
+                <option selected value="0">off</option>
+                <option value="2">on</option>
+            </select>
+        </label>
+
+        <label>
+            fault diagnosis
+            <select name="diagnosis">
+                <option selected value="0">off</option>
+                <option value="1">on</option>
+            </select>
+        </label>
+        {% endif %}
+
+        <input id="run-sim-btn" type="button" value="run sim">
+        
+    </form>
+</div>

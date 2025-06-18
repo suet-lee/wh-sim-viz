@@ -1,0 +1,30 @@
+* { font-family: Helvetica; }
+
+input[type="button"] { letter-spacing: 0.5px; height: 28px; }
+
+#visual { z-index: -1; height: 100%; width: 80%; position: fixed; top: 0; bottom: 0; left: 0; background-color: rgb(255, 255, 255); display: flex; flex-direction: column; padding-top: 50px; }
+#btns button { width: 65px; height: 30px; float: left; margin-right: 5px; letter-spacing: 0.5px; }
+#btns button.step { width: 30px; }
+/* #btns #ts-slider { height: 100%; }
+#btns #ts-slider span { vertical-align: middle; font-size: 10px; letter-spacing: 0px; margin-left: 10px; } */
+#btns input[name="ts-text"] { width: 100px; }
+
+/* #arena { margin: auto; border: 2px solid rgb(124, 133, 130); } */
+#time { margin: 0 auto; }
+#rates-values { margin: 0 auto; }
+#arena { width: 500px; height: 500px; margin: 0 auto; border: 2px solid #2b2b2b; }
+#yaxis { width: 100px; height: 513px; position: absolute; border: 0px solid #dadada; }
+#xaxis { width: 520px; height: 100px; position: absolute; border: 0px solid #dadada; }
+#height_lab { position: absolute; transform: rotate(-90deg); }
+#width_lab { position: absolute; }
+#legend { width: 200px; height: 500px; position: absolute; }
+
+#control-panel { width: 10%; position: fixed; padding: 10px; top: 0; bottom: 0; right: 0; background-color: aliceblue; overflow-y: scroll; }
+#control-panel label { display: block; margin: 15px auto; height: 40px; }
+#control-panel input, #control-panel select { width: 90%; margin: 0 auto; }
+#control-panel input#reset-sim-cfg { float: right; width: 50px; height: 30px; }
+
+#loading { display: none; width: 100%; height: 100%; z-index: 5; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-color:rgb(0, 0, 0, 0.85); }
+#loading #panel { width: 200px; height: 200px; margin: auto; margin-top: 350px; }
+#loading #panel p { color: white; text-align: center; letter-spacing: 10px; font-size: 20px; }
+#loading #panel #loading-visual { margin: auto; width: 50px; height: 50px; border-radius: 100px; background-color: #fff; }
